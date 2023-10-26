@@ -1,0 +1,52 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: #f0f0f0;
+  font-family: Arial, sans-serif;
+  flex-direction: column;
+}
+
+#editor,
+#output {
+  width: 60%;
+  height: 80vh;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+  background: #fff;
+  margin: 1%;
+}
+
+#editor {
+  font-family: monospace;
+}
+
+#runButton,
+#copyButton {
+  display: block;
+  width: 200px;
+  height: 40px;
+  margin: 20px auto;
+  background: #4caf50;
+  color: #fff;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  line-height: 40px;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+#runButton:hover,
+#copyButton:hover {
+  background: #45a049;
+}
+
+small {
+  color: lightgray;
+}
