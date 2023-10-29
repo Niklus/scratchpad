@@ -2,17 +2,83 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scratchpad</title>
+    <title>JS Scratchpad</title>
+    <!--Prism-->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css"
+    />
+    <!--code-input-->
+    <script src="https://cdn.jsdelivr.net/gh/WebCoder49/code-input@1.2/code-input.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/WebCoder49/code-input@1.2/code-input.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/WebCoder49/code-input@1.2/plugins/prism-line-numbers.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/gh/WebCoder49/code-input@1.2/plugins/indent.min.js"></script>
+    <!--Prism line numbers plugin-->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css"
+    />
+    <script>
+      codeInput.registerTemplate(
+        "syntax-highlighted",
+        codeInput.templates.prism(Prism, [new codeInput.plugins.Indent()])
+      );
+    </script>
   </head>
   <body>
-    <h1>Scratchpad</h1>
-    <button id="copyButton">Copy</button>
-    <textarea id="editor"></textarea>
-    <button id="runButton">Run</button>
-    <div id="output"></div>
-    <br />
-    <script type="module" src="/main.js"></script>
+    <header>
+      <h1>jsPad</h1>
+      <div class="actions">
+        <button id="runButton"><img src="run.svg" /></button>
+        <button class="popup" id="copyButton">
+          <img src="copy.svg" /><span class="popuptext" id="myPopup"
+            >Copied to clipboard</span
+          >
+        </button>
+        <button id="clearButton"><img src="clear.svg" /></button>
+      </div>
+    </header>
+    <div class="container">
+      <p>Editor</p>
+      <code-input
+        id="code-input"
+        class="line-numbers"
+        lang="JavaScript"
+        template="syntax-highlighted"
+        placeholder="Enter your JS here..."
+      ></code-input>
+      <p>Output</p>
+      <div id="output"></div>
+      <br />
+    </div>
+    <script type="module" src="./main.js"></script>
+    <script>
+      if (
+        location.hostname !== "localhost" &&
+        location.hostname !== "127.0.0.1"
+      ) {
+        if ("serviceWorker" in navigator) {
+          window.addEventListener("load", () => {
+            navigator.serviceWorker
+              .register("./sw.js")
+              .then(() => {
+                // console.log("ServiceWorker registered!");
+              })
+              .catch((err) => {
+                // console.log("ServiceWorker registration failed: ", err);
+              });
+          });
+        }
+      }
+    </script>
   </body>
 </html>
