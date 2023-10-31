@@ -22,3 +22,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+TODOS.txt
+
+.space
+Spacefile
+icon.png
+.spaceignore
+Discovery.md
+static

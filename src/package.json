@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:space": "vite build && mv dist ../static",
     "preview": "vite preview"
   },
   "devDependencies": {
