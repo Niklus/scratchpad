@@ -1,6 +1,6 @@
 # Javascript Scratchpad
 
-[LIVE ⚡️ ]("https://javascriptpad.netlify.app")
+## [LIVE⚡️]("https://javascriptpad.netlify.app")
 
 This a simple scratchpad for javascript. It is a simple web page that allows you to write javascript code and see the results. It is a great tool for learning and testing javascript code.
 
